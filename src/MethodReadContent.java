@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Scanner;
@@ -12,9 +13,15 @@ public class MethodReadContent {
     {
         System.out.println("Введите адрес:");
         Scanner in = new Scanner(System.in);
-        String urlAdress =  in.nextLine();
-        String output  = ReadContent(urlAdress);
-        System.out.println(output);
+        URL urlAdress;
+        try {
+             urlAdress =  new URL(in.nextLine());
+            String output = ReadContent(urlAdress.toString());
+            System.out.println(output);
+        } catch(MalformedURLException e){
+            System.out.println(e.getMessage());
+            System.out.println("Указан неверный формат адреса, введите снова:");
+        }
     }
     private static String ReadContent(String urladress)
     {
