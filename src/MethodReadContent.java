@@ -15,7 +15,7 @@ public class MethodReadContent {
         Scanner in = new Scanner(System.in);
         URL urlAdress;
         try {
-             urlAdress =  new URL(in.nextLine());
+            urlAdress =  new URL(in.nextLine());
             String output = ReadContent(urlAdress.toString());
             System.out.println(output);
         } catch(MalformedURLException e){
@@ -26,23 +26,12 @@ public class MethodReadContent {
     private static String ReadContent(String urladress)
     {
         StringBuilder content = new StringBuilder();
-
-        // many of these calls can throw exceptions, so i've just
-        // wrapped them all in one try/catch statement.
         try
         {
-            // create a url object
             URL url = new URL(urladress);
-
-            // create a urlconnection object
             URLConnection urlConnection = url.openConnection();
-
-            // wrap the urlconnection in a bufferedreader
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-
             String line;
-
-            // read from the urlconnection via the bufferedreader
             while ((line = bufferedReader.readLine()) != null)
             {
                 content.append(line + "\n");
