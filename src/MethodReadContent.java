@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Scanner;
 
 /**
  * Created by Malahova on 26.07.2016.
@@ -9,10 +10,13 @@ import java.net.URLConnection;
 public class MethodReadContent {
     public static void main(String[] args)
     {
-        String output  = getUrlContents("https://online.sberbank.ru/CSAFront/index.do");
+        System.out.println("Введите адрес:");
+        Scanner in = new Scanner(System.in);
+        String urlAdress =  in.nextLine();
+        String output  = ReadContent(urlAdress);
         System.out.println(output);
     }
-    private static String getUrlContents(String theUrl)
+    private static String ReadContent(String theUrl)
     {
         StringBuilder content = new StringBuilder();
 
