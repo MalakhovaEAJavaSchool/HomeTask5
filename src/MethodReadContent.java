@@ -16,7 +16,7 @@ public class MethodReadContent {
         String output  = ReadContent(urlAdress);
         System.out.println(output);
     }
-    private static String ReadContent(String theUrl)
+    private static String ReadContent(String urladress)
     {
         StringBuilder content = new StringBuilder();
 
@@ -25,7 +25,7 @@ public class MethodReadContent {
         try
         {
             // create a url object
-            URL url = new URL(theUrl);
+            URL url = new URL(urladress);
 
             // create a urlconnection object
             URLConnection urlConnection = url.openConnection();
